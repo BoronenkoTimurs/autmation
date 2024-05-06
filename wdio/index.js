@@ -1,20 +1,20 @@
 describe('Open website and wait', () => {
   it('Load the board game store in "galda-speles" section', async () => {
-    await browser.url('./collections/galda-speles');  // Navigate to the website
+    await browser.url('./collections/galda-speles'); 
   
     const cookieAcceptBtn = await browser.$('[aria-label="allow cookies"]');
-    await cookieAcceptBtn.click(); // Accept cookie files
+    await cookieAcceptBtn.click();
 
-    const title = await browser.getTitle()
-    expect(title).toBe('Galda spēles — Brain Games'); //Make sure its correct page
+    const title = await browser.getTitle();
+    expect(title).toBe('Galda spēles — Brain Games');
 
   });
 
   it('Search for the "Catan" board game', async () => {
-    const searchBarBox = await browser.$('[aria-label="Meklēt"]')
-    await searchBarBox.setValue("Catan") //Write the value into search bar
+    const searchBarBox = await browser.$('[aria-label="Meklēt"]');
+    await searchBarBox.setValue("Catan");
       
-    const searchBarBtn = await browser.$('button[type="submit"]')
+    const searchBarBtn = await browser.$('button[type="submit"]');
     await searchBarBtn.click();
 
   });
@@ -22,7 +22,7 @@ describe('Open website and wait', () => {
   it('Open "Catan Jūrasbraucēji" card', async () => {
     const firstResult = await browser.$('*=Catan: Jūrasbraucēji');
     const isDisplayed = await firstResult.isDisplayed();
-    expect(isDisplayed).toBe(true) //Make sure that this element is Displayed on the page
+    expect(isDisplayed).toBe(true);
     
     /*
     Good practice to wait for element will be displayed and clickable
@@ -30,12 +30,12 @@ describe('Open website and wait', () => {
     const catanLink = await browser.$('a[href="/products/catan-jurasbrauceji-paplasinajums-galda-spele"][tabindex="1"]');
     await catanLink.waitForDisplayed();
     await catanLink.waitForClickable();
-    await catanLink.click()
+    await catanLink.click();
   });
 
   it('Add this item into cart', async () => {
-    const addItem = await browser.$('button[data-product-atc]')
-    await addItem.click()
+    const addItem = await browser.$('button[data-product-atc]');
+    await addItem.click();
 
     /*
       Here we do req to the server and for this we should wait 
@@ -43,7 +43,7 @@ describe('Open website and wait', () => {
     await browser.waitUntil(
       async () => {
         const bannerTitle = await browser.$('.atc-banner--product-title');
-        const isDisplayed = await bannerTitle.isDisplayed()
+        const isDisplayed = await bannerTitle.isDisplayed();
         return await isDisplayed;
       },
       {
@@ -58,13 +58,13 @@ describe('Open website and wait', () => {
     await viewCartBtn.waitForEnabled();
     await viewCartBtn.click();
 
-    await browser.url('/cart');  // Make sure you navigate to the cart page
+    await browser.url('/cart');
 
     const itemInCart = await browser.$('a[href*="catan-jurasbrauceji-paplasinajums-galda-spele"]');
     const isDisplayed = await itemInCart.isDisplayed();
     expect(isDisplayed).toBe(true);
 
     const price = await browser.$('.saso-cart-item-price').getText();
-    expect(price).toContain('44.95 €'); //Chekc if price are correct
+    expect(price).toContain('44.95 €');
   });
 });
