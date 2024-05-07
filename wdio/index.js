@@ -1,5 +1,5 @@
 describe('Open website and wait', () => {
-  it('Load the board game store in "galda-speles" section', async () => {
+  it('Load the Brain Games store in galda-speles section', async () => {
     await browser.url('./collections/galda-speles'); 
   
     const cookieAcceptBtn = await browser.$('[aria-label="allow cookies"]');
@@ -53,7 +53,7 @@ describe('Open website and wait', () => {
     );
   });
 
-  it('Check if item exist in cart ', async () => {
+  it('Check if item exist in the cart ', async () => {
     const viewCartBtn = await browser.$('*=Apskatīt grozu');
     await viewCartBtn.waitForEnabled();
     await viewCartBtn.click();
