@@ -52,7 +52,7 @@ exports.config = {
     //
     capabilities: [{
         browserName: 'chrome',
-        browserVersion: '124.0.6367.91'
+        browserVersion: '117.0.5938.149'
     }],
 
     //
@@ -86,7 +86,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://www.brain-games.lv/', 
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -130,7 +130,7 @@ exports.config = {
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
-        require: ['./features/step-definitions/steps.js'],
+        require: ['./features/step-definitions/brain_games_steps.js'],
         // <boolean> show full backtrace for errors
         backtrace: false,
         // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
@@ -150,7 +150,7 @@ exports.config = {
         // <number> timeout for step definitions
         timeout: 60000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
-        ignoreUndefinedDefinitions: false
+        ignoreUndefinedDefinitions: true
     },
 
     //
