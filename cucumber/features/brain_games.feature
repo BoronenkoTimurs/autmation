@@ -18,7 +18,7 @@ Feature: Brain Games Store Testing
   Scenario: Add "Catan Jūrasbraucēji" into the cart
     Given I am on the "Catan Jūrasbraucēji" game page
     When I add the item to the cart
-    Then the item should appear in the cart
+    Then the item count in the cart is uqual "1"
 
   Scenario: Check if "Catan Jūrasbraucēji" is in the cart
     Given I have added the item to the cart

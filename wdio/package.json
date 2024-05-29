@@ -2,12 +2,16 @@
   "name": "wdio",
   "type": "module",
   "devDependencies": {
+    "@wdio/allure-reporter": "^8.37.0",
     "@wdio/local-runner": "^8.36.1",
     "@wdio/mocha-framework": "^8.36.1",
     "@wdio/spec-reporter": "^8.36.1",
+    "allure-commandline": "^2.29.0",
     "wdio-wait-for": "^3.0.11"
   },
   "scripts": {
-    "wdio": "wdio run ./wdio.conf.js"
+    "wdio": "wdio run ./wdio.conf.js",
+    "repeat-tests": "./repeat-tests.sh",
+    "combine-results": "./combine-results.sh"
   }
 }
